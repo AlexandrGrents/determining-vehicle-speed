@@ -1,4 +1,9 @@
-####Install
+![demo](demo.gif)
+
+This repository contains all source codes relevant to the "Determining vehicle speed based using convolutional neural network" research paper. We used official [Detectron2](https://github.com/facebookresearch/detectron2) realization from Facebook as a start point and [this](https://github.com/AlexandrGrents/sort) SORT tracker realization (fork for [official realization](https://github.com/abewley/sort))
+
+
+#### Install
 
 `git clone --recurse-submodules https://github.com/AlexandrGrents/determining-vehicle-speed.git`
 
@@ -8,7 +13,7 @@
 
 `python -m pip install -e detectron2`
 
-####Run
+#### Run
 
 `python run.py`
 
