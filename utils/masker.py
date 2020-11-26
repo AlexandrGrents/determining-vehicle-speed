@@ -1,3 +1,6 @@
+import cv2
+import numpy as np
+
 class Masker(object):
 	def __init__(self, filename, size = None):
 		self.mask = cv2.imread(filename)

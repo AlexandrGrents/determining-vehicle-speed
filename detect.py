@@ -36,7 +36,7 @@ def detect_on_video(video_path, out_path, detector, tracker, coef_file='coef.jso
 	masker = Masker(mask_file, (w, h))
 
 	# Создаём трекер для отслеживания автомобилей на разных кадрах
-	tracker = Sort()
+#	tracker = Sort()
 	speedometer = Speedometer(coef_file, fps=fps, size=(w, h))
 
 
@@ -64,7 +64,7 @@ def detect_on_video(video_path, out_path, detector, tracker, coef_file='coef.jso
 		for_tracker = np.concatenate([boxes, scores[:, None]], axis=1)
 		dets, associaties = tracker.update(for_tracker, make_associaties = True)
 
-		speeds = spmeter.update(dets)
+		speeds = speedometer.update(dets)
 
 
 		for i in range(scores.shape[0]):
@@ -73,7 +73,7 @@ def detect_on_video(video_path, out_path, detector, tracker, coef_file='coef.jso
 
 			if track_id == 0:  continue
 			
-			speed = spmeter.ms_to_kmh(speeds[track_id])
+			speed = speedometer.ms_to_kmh(speeds[track_id])
 			class_id = classes[i]
 			class_label = class_names[class_id]
 
